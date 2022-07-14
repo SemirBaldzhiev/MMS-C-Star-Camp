@@ -2,7 +2,7 @@
 #include <stdint.h>
 
 int main() {
-    const uint64_t one = 1;
+    const uint64_t one = 1ULL;
     uint64_t attendance = 0;
     int option;
 
