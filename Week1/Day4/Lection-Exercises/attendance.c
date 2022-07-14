@@ -1,8 +1,28 @@
 #include <stdio.h>
 #include <stdint.h>
 
+const uint64_t one = 1ULL;
+
+void setAttendance(uint64_t *attendance, unsigned num) {
+    *attendance |= (one << num);
+}
+
+void clearAttendance(uint64_t *attendance, unsigned num) {
+    *attendance &= ~(one << num);
+}
+
+void info(uint64_t attendance, unsigned num) {
+    for (int bit = sizeof(attendance) * __CHAR_BIT__ - 1; bit >= 0; bit--) {
+        printf("%d", !!(attendance & (one << bit)));
+    }
+    putchar('\n');
+}
+
+void changeAttendance(uint64_t *attendance, unsigned num) {
+    *attendance ^= (one << num);
+}
+
 int main() {
-    const uint64_t one = 1ULL;
     uint64_t attendance = 0;
     int option;
 
@@ -12,6 +32,7 @@ int main() {
         printf("3. Attendance Info\n");
         printf("4. Change attendance\n");
         printf("5. Exit\n");
+
         scanf("%d", &option);
 
         if (option < 1 || option > 5){
@@ -33,19 +54,16 @@ int main() {
         }
 
         if (1 == option) {
-            attendance |= (one << num);
+            setAttendance(&attendance, num);
         }
         else if (2 == option){
-            attendance &= ~(one << num);
+            clearAttendance(&attendance, num);
         }
         else if (3 == option){
-            for (int bit = sizeof(attendance) * __CHAR_BIT__ - 1; bit >= 0; bit--) {
-                printf("%d", !!(attendance & (one << bit)));
-            }
-            putchar('\n');
+            info(attendance, num);
         }
         else if (4 == option){
-            attendance ^= (one << num);
+            changeAttendance(&attendance, num);
         }
 
     }
