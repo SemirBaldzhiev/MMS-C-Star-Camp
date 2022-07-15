@@ -10,10 +10,9 @@ void swap(int* a, int* b){
 
 int main() {
 
-    int num1 = 5;
+    char c = 'Z';
     int num2 = 4;
-    swap(&num1, &num2);
-    printf("%d\n", num1);
+    void * a = &c;
     printf("%d\n", num2);
 
     return 0;
