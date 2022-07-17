@@ -1,0 +1,7 @@
+task 1
+./max < numbers.txt - read numbers from file
+task 2
+./xor < nums-xor.txt - read from file
+task 3
+cat numbers.txt | sort -n | tail -n 1
+cat numbers.txt | sort -n | head -n 1
