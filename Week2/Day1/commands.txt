@@ -1,0 +1,12 @@
+3.1
+ps
+3.2
+mkdir "MMS C camp"
+rm [0-9]*
+
+3.3
+chmod u=rwx,g=rx,o=r testFile
+3.4
+wc -l source1.c source2.c > lineCount
+3.5
+find -type f -name "*.c" -exec wc {} +
