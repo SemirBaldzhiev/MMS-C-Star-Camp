@@ -2,8 +2,7 @@
 
 #define DEBUG
 #define RELEASE
-#define DEVELOPMENT
-
+#define DEVELOPM
 
 int  main() {
 
@@ -20,35 +19,28 @@ int  main() {
         printf("Code is realesed\n");
     #endif
 
-
-    #define OS 1
-    #if OS == 1
-        printf("Hello Linux\n");
-    #elif OS == 2
-        printf("Hello Windows\n");
-    #elif OS == 3
-        printf("Hello MacOS\n");
+    #ifdef OS
+        #if OS == 1
+            printf("Hello Linux\n");
+        #elif OS == 2
+            printf("Hello Windows\n");
+        #elif OS == 3
+            printf("Hello MacOS\n");
+        #endif
+    #else 
+        printf("OS not defined");
     #endif
 
-    #undef OS
-    #define OS 2
-    #if OS == 1
-        printf("Hello Linux\n");
-    #elif OS == 2
-        printf("Hello Windows\n");
-    #elif OS == 3
-        printf("Hello MacOS\n");
-    #endif
 
-    #undef OS
-    #define OS 3
-    #if OS == 1
-        printf("Hello Linux\n");
-    #elif OS == 2
-        printf("Hello Windows\n");
-    #elif OS == 3
-        printf("Hello MacOS\n");
-    #endif
+    // #error Error Message - cant compile
+    // #warning Warning message
+
+    printf("%s\n", __FILE__);
+    printf("%s\n", __TIME__);
+    printf("%s\n", __TIMESTAMP__);
+    printf("%d\n", __STDC__);
+    #line 3
+    printf("%d\n", __LINE__);
 
     return 0;
 }
