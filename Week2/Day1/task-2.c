@@ -40,17 +40,17 @@ void mirrorBits(uint16_t* mask) {
         int lastBit = !!(*mask & (1 << (15 - i)));
 
         if (firstBit){
-            *mask |= (1 << (15 - i));
-        } 
-        else {
-            *mask &= ~(1 << (15 - i));
-        }
-
-        if (lastBit){
             *mask |= (1 << i);
         } 
         else {
             *mask &= ~(1 << i);
+        }
+
+        if (lastBit){
+            *mask |= (1 << (15 - i));
+        } 
+        else {
+            *mask &= ~(1 << (15 - i));
         } 
     }
 }
