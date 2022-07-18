@@ -19,14 +19,16 @@ int main() {
     printf("%u\n", c);
 
     uint64_t mask = 0b0000000000000000000000000000000000000000000000000000000000000000;
-    uint16_t mask5 = 0b0011111100000011;
+    uint16_t mask5 = 0b1011101000000011;
     printMask(&mask);
     flipOddBits(&mask);
     printMask(&mask);
+    printMask16(&mask5);
     mirrorBits(&mask5);
     printMask16(&mask5);
     return 0;
 }
+
 
 void flipOddBits(uint64_t* mask) {
     for (int i = 1; i < sizeof(*mask) * __CHAR_BIT__; i+=2){
@@ -40,17 +42,17 @@ void mirrorBits(uint16_t* mask) {
         int lastBit = !!(*mask & (1 << (15 - i)));
 
         if (firstBit){
-            *mask |= (1 << i);
-        } 
-        else {
-            *mask &= ~(1 << i);
-        }
-
-        if (lastBit){
             *mask |= (1 << (15 - i));
         } 
         else {
             *mask &= ~(1 << (15 - i));
+        }
+
+        if (lastBit){
+            *mask |= (1 << i);
+        } 
+        else {
+            *mask &= ~(1 << i);
         } 
     }
 }
