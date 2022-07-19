@@ -31,7 +31,7 @@ int sumWhile(int n, ...) {
         sum += num;
         num = va_arg(args, int);
     }
-
+    va_end(args);
     return sum;
     
 }
@@ -60,6 +60,6 @@ double max(int cnt, ...) {
             maxNum = num;
         }
     }
-
+    va_end(args);
     return maxNum;
 } 
