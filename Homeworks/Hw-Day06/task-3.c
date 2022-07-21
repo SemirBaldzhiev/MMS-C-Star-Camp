@@ -16,14 +16,14 @@
 void printValue(const void* valuePtr, uint8_t flag) {
     switch (flag)
     {
-        case TINT: printf("%d\n", *((int*)valuePtr)); break;
-        case TCHAR: printf("%c\n", *((char*)valuePtr)); break;
-        case TDBL: printf("%lf\n", *((double*)valuePtr)); break;
-        case TFLOAT: printf("%f\n", *((float*)valuePtr)); break;
-        case TUI8: printf("%u\n", *((uint8_t*)valuePtr)); break;
-        case TUI16: printf("%u\n", *((uint16_t*)valuePtr)); break;
-        case TUI32: printf("%u\n", *((uint32_t*)valuePtr)); break;
-        case TUI64: printf("%lu\n", *((uint64_t*)valuePtr)); break;
+        case TINT: printf("Value: %d\n", *((int*)valuePtr)); break;
+        case TCHAR: printf("Value: %c\n", *((char*)valuePtr)); break;
+        case TDBL: printf("Value: %lf\n", *((double*)valuePtr)); break;
+        case TFLOAT: printf("Value: %f\n", *((float*)valuePtr)); break;
+        case TUI8: printf("Value: %u\n", *((uint8_t*)valuePtr)); break;
+        case TUI16: printf("Value: %u\n", *((uint16_t*)valuePtr)); break;
+        case TUI32: printf("Value: %u\n", *((uint32_t*)valuePtr)); break;
+        case TUI64: printf("Value: %lu\n", *((uint64_t*)valuePtr)); break;
         default: printf("Unsupported format!\n"); break;
     }
 }
