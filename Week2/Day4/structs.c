@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 
 typedef struct  {
     char name[11];
@@ -26,6 +27,11 @@ typedef struct {
     double len;
 } line_t;
 
+typedef union {
+    uint16_t num;
+    uint8_t b[2];
+} uniontest_t;
+
 int main() { 
 
     point_t p3 = {.name = "A", .x = 4.5, .y = 5.7};
@@ -45,6 +51,10 @@ int main() {
     printf("%lu\n",sizeof(book));
     printf("%lu\n",sizeof(p3));
     printf("%lu\n",sizeof(line));
+
+    uniontest_t u;
+    u.num = 0xabcd;
+    printf("%x\n", u.b[1]);
 
     return 0;
 }
