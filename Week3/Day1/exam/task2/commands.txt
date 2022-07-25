@@ -1,0 +1,11 @@
+Static lib
+gcc -c comparators.c -o comparators.o
+ar -rcs libcomparestaticlib.a comparators.o
+gcc main.c -o main -L . -l comparestaticlib -D COUNT=5 -D MIN=-10 -D MAX=20
+
+Dynamic lib
+gcc -fPIC -c comparators.c
+gcc -shared -o libcomparatorsdynmlib.so comparators.o
+export LD_LIBRARY_PATH=/home/mms/MMS-C-Star-Camp/Week3/Day1/exam/task2:${LD_LIBRARY_PATH}
+gcc main.c -o main -L . -l comparatorsdynmlib -D COUNT=5 -D MIN=-10 -D MAX=20
+
