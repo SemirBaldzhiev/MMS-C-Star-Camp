@@ -65,7 +65,18 @@ void destroy_ll(node_t *head){
     }
 }
 
-int main() {
+void save_to_file(node_t *head, char *file_name) {
+    FILE *f = fopen(file_name, "w");
+    node_t *curr_node = head;
+    while (curr_node){
+        fprintf(f, "%ld ", curr_node->data);
+        curr_node = curr_node->next;
+    }
+
+    fclose(f);
+}
+
+int main(int agrc, char *argp[]) {
 
     node_t *n1 = malloc(sizeof(node_t));
     
@@ -93,9 +104,10 @@ int main() {
     push_back(&head1, 18);
     push_back(&head1, 45);
     printList(head1);
-    destroy_ll(head1);
 
-   
+    save_to_file(head1, argp[1]);
+
+    destroy_ll(head1);
     
     return 0;
 }
