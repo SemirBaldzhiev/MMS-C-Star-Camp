@@ -89,14 +89,14 @@ int main() {
     //printf("%p ", head->next);
     insertAfter(head, 1, 5);
 
-    // int n;
-    // scanf("%d", &n);
+    int n;
+    scanf("%d", &n);
 
-    // for (int i = 0; i < n; i++){
-    //     int d;
-    //     scanf("%d", &d);
-    //     push_back(head, d);
-    // }
+    for (int i = 0; i < n; i++){
+        int d;
+        scanf("%d", &d);
+        push_back(&head, d);
+    }
     // printf("here");
     print(head);
     // printf("here");
