@@ -7,7 +7,7 @@ typedef struct Node {
 } Node;
 
 
-Node* insertAfter(struct Node *cll, int skipCount, int newElem){
+Node* insertAfter(Node *cll, int skipCount, int newElem){
     Node* new_node = malloc(sizeof(Node));
     new_node->data = newElem;
     
@@ -51,6 +51,10 @@ void push_back(Node *head, int data){
     do{
         last_node = last_node->next;
     }while(last_node->next != head);
+
+    if(!last_node){
+        last_node = head;
+    }
 
     // while (last_node->next){
         
