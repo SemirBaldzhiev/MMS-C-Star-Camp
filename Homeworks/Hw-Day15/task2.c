@@ -66,14 +66,12 @@ void save_to_file(Node *head, char *file_name) {
     fclose(f);
 
 }
-void swap(Node *a, Node *b) 
-{ 
+void swap(Node *a, Node *b)  { 
     Book temp = a->data; 
     a->data = b->data; 
     b->data = temp; 
 } 
-void sort(Node *start) 
-{ 
+void sort(Node *start)  { 
     int swapped; 
     Node *ptr1; 
     Node *lptr = NULL; 
@@ -120,7 +118,6 @@ int main(int argc, char **argv) {
         push_back(&head, books[i]);
     }
 
-    //qsort(head, COUNT, sizeof(Book), compare_book);
     sort(head);
     save_to_file(head, argv[2]);
 
