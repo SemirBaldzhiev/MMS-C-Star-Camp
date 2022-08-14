@@ -1,0 +1,5 @@
+IPC 
+-signals
+-pipe
+-message queue
+-socket
